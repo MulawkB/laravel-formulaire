@@ -21,9 +21,15 @@
         <br>
         <label for="details">Description du cadeau</label>
         <textarea name="details" id="details">{{ old('details', $gift->details) }}</textarea>
+        @error ('details')
+            <p>{{ $message }}</p>
+        @enderror
         <br>
         <label for="url">Url du cadeau</label>
         <input type="text" name="url" id="url" value="{{ old('url', $gift->url) }}">
+        @error ('url')
+            <p>{{ $message }}</p>
+        @enderror
         <br>
         <button type="submit">Mettre à jour le cadeau</button>
     </form>

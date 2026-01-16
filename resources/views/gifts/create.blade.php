@@ -20,9 +20,15 @@
         <br>
         <label for="details">Description du cadeau</label>
         <textarea name="details" id="details">{{ old('details') }}</textarea>
+        @error ('details')
+            <p>{{ $message }}</p>
+        @enderror
         <br>
         <label for="url">Url du cadeau</label>
         <input type="text" name="url" id="url" value="{{ old('url') }}">
+        @error ('url')
+            <p>{{ $message }}</p>
+        @enderror
         <br>
         <button type="submit">Créer le cadeau</button>
     </form>
