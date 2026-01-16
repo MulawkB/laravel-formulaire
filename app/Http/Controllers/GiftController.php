@@ -38,9 +38,9 @@ class GiftController extends Controller
         ]);
 
         Gift::create($validated);
-        Mail::raw('ajout Produit', function ($message) use ($validated) {
+        Mail::raw('Le cadeau '. $validated['name'] .' a bien été ajouté '. $validated['price'] .'€', function ($message) {
             $message->to('hello@example.com')
-                    ->subject('Le cadeau '. $validated['name'] .' a bien été ajouté '. $validated['price'] .'€');
+                    ->subject('votre cadeau a été ajouté');
         });
 
         return redirect()->route('home');
